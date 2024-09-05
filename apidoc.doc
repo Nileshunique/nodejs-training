@@ -1,0 +1,205 @@
+Register
+  route => "/api/auth/signup",
+  mathod => "post",
+  body => email, password, confirmPassword,
+  query => ""
+
+login
+  route => "/api/auth/login",
+  mathod => "post",
+  body => email, password,
+  query => ""
+
+createPost 
+  route => "/api/post/createPost
+  method => "post",
+  body => title, blog, userId
+  query => ""
+
+getPost 
+  route => "/api/post/getPost
+  method => "get",
+  body => "",
+  query => postId // optional
+
+getPosts
+  route => "/api/post/getPosts
+  method => "get",
+  body => "",
+  query => userId,
+
+updatePost
+  route => "/api/post/updatePost
+  method => "put",
+  body => title, blog, postId,userId,
+  query => "",
+
+deletePost
+  route => "/api/post/deletePost
+  method => "delete",
+  body => postId,userId,
+  query => "",
+
+Responses => 
+  Register
+    {
+      "_id": "66d9598028550b9f35118195",
+      "email": "test1@yopmail.com",
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NmQ5NTk4MDI4NTUwYjlmMzUxMTgxOTUiLCJlbWFpbCI6InRlc3QxQHlvcG1haWwuY29tIiwiaWF0IjoxNzI1NTIwMjU3LCJleHAiOjE3MjU2OTMwNTd9.v1gY-0w65hYy2_Usg_JIyGO8E543_I0v4FvH5KH80bQ",
+      "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NmQ5NTk4MDI4NTUwYjlmMzUxMTgxOTUiLCJlbWFpbCI6InRlc3QxQHlvcG1haWwuY29tIiwicmVmcmVzaCI6dHJ1ZSwiaWF0IjoxNzI1NTIwMjU3fQ.bndFGH1L-sQtrC4Owb-GiPIkatoBe-NvpwTsQ3KuaVs"
+    }
+  
+  Login
+    {
+      "_id": "66d9598028550b9f35118195",
+      "email": "test1@yopmail.com",
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NmQ5NTk4MDI4NTUwYjlmMzUxMTgxOTUiLCJlbWFpbCI6InRlc3QxQHlvcG1haWwuY29tIiwiaWF0IjoxNzI1NTIwMzcyLCJleHAiOjE3MjU2OTMxNzJ9.Q1jms8cRFcow0-VN6osphFiedIGm1XjRKNzWfAF7rSk",
+      "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NmQ5NTk4MDI4NTUwYjlmMzUxMTgxOTUiLCJlbWFpbCI6InRlc3QxQHlvcG1haWwuY29tIiwicmVmcmVzaCI6dHJ1ZSwiaWF0IjoxNzI1NTIwMzcyfQ.A2QDg68paQUjS9O_IbiPFoA4I4i08N3F3Z_stHIpB6o"
+    }
+  
+  Create post
+    1. 
+      {
+        "message": "Success",
+        "data": {
+          "title": "This is the title of Blog",
+          "blog": "this is Blog description",
+          "userId": "66d9598028550b9f35118195",
+          "updatedAt": "2024-09-05T07:10:45.400Z",
+          "_id": "66d95a4d28550b9f35118198",
+          "createdAt": "2024-09-05T07:14:21.418Z",
+          "__v": 0
+        }
+      }
+
+    2.
+      {
+        "message": "Success",
+        "data": {
+          "title": "What is Javascript?",
+          "blog": "Javascript is a interpreted language that support every where",
+          "userId": "66d9598028550b9f35118195",
+          "updatedAt": "2024-09-05T07:10:45.400Z",
+          "_id": "66d95a9328550b9f3511819a",
+          "createdAt": "2024-09-05T07:15:31.162Z",
+          "__v": 0
+        }
+      }
+    
+    3. 
+      {
+        "message": "Success",
+        "data": {
+          "title": "What is HTML?",
+          "blog": "HTMl is a Hyper Text markup language",
+          "userId": "66d9598028550b9f35118195",
+          "updatedAt": "2024-09-05T07:10:45.400Z",
+          "_id": "66d95af728550b9f3511819c",
+          "createdAt": "2024-09-05T07:17:11.701Z",
+          "__v": 0
+        }
+      }
+  
+  update post
+    {
+      "message": "Success",
+      "data": {
+        "_id": "66d95a4d28550b9f35118198",
+        "title": "What is CSS",
+        "blog": "CSS is a style sheet for html that use for styling the web pages",
+        "userId": "66d9598028550b9f35118195",
+        "updatedAt": "2024-09-05T07:10:45.400Z",
+        "createdAt": "2024-09-05T07:14:21.418Z",
+        "__v": 0
+      }
+    }
+  
+  delete Post
+    {
+      "message": "Success",
+      "data": {
+        "_id": "66cdcc5bcd60caf76a9327c5",
+        "title": "This is new title",
+        "blog": "This is blog",
+        "userId": "66d96111c41c3f7b23ce0ece",
+        "updatedAt": "2024-08-27T12:53:44.134Z",
+        "createdAt": "2024-08-27T12:53:47.747Z",
+        "__v": 0,
+        "delete": true
+      }
+    }
+  
+  get posts
+    {
+      "message": "Success",
+      "data": [
+        {
+          "_id": "66d95a4d28550b9f35118198",
+          "title": "What is CSS",
+          "blog": "CSS is a style sheet for html that use for styling the web pages",
+          "userId": "66d9598028550b9f35118195",
+          "updatedAt": "2024-09-05T07:10:45.400Z",
+          "createdAt": "2024-09-05T07:14:21.418Z",
+          "__v": 0
+        },
+        {
+          "_id": "66d95a9328550b9f3511819a",
+          "title": "What is Javascript?",
+          "blog": "Javascript is a interpreted language that support every where",
+          "userId": "66d9598028550b9f35118195",
+          "updatedAt": "2024-09-05T07:10:45.400Z",
+          "createdAt": "2024-09-05T07:15:31.162Z",
+          "__v": 0
+        },
+        {
+          "_id": "66d95af728550b9f3511819c",
+          "title": "What is HTML?",
+          "blog": "HTMl is a Hyper Text markup language",
+          "userId": "66d9598028550b9f35118195",
+          "updatedAt": "2024-09-05T07:10:45.400Z",
+          "createdAt": "2024-09-05T07:17:11.701Z",
+          "__v": 0
+        }
+      ]
+    }
+
+  get post with postId
+    {
+      "message": "Success",
+      "data": [
+        {
+          "_id": "66d95a4d28550b9f35118198",
+          "title": "What is CSS",
+          "blog": "CSS is a style sheet for html that use for styling the web pages",
+          "userId": "66d9598028550b9f35118195",
+          "updatedAt": "2024-09-05T07:10:45.400Z",
+          "createdAt": "2024-09-05T07:14:21.418Z",
+          "__v": 0
+        }
+      ]
+    }
+
+  get Post with limit 2
+    {
+      "message": "Success",
+      "data": [
+        {
+          "_id": "66d95a4d28550b9f35118198",
+          "title": "What is CSS",
+          "blog": "CSS is a style sheet for html that use for styling the web pages",
+          "userId": "66d9598028550b9f35118195",
+          "updatedAt": "2024-09-05T07:10:45.400Z",
+          "createdAt": "2024-09-05T07:14:21.418Z",
+          "__v": 0
+        },
+        {
+          "_id": "66d95a9328550b9f3511819a",
+          "title": "What is Javascript?",
+          "blog": "Javascript is a interpreted language that support every where",
+          "userId": "66d9598028550b9f35118195",
+          "updatedAt": "2024-09-05T07:10:45.400Z",
+          "createdAt": "2024-09-05T07:15:31.162Z",
+          "__v": 0
+        }
+      ]
+    }

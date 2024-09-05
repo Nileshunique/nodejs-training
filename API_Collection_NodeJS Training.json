@@ -1,0 +1,149 @@
+{
+    "clientName": "Thunder Client",
+    "collectionName": "NodeJS Training",
+    "collectionId": "e8c8426b-9688-468a-98b4-681312dd53b2",
+    "dateExported": "2024-09-05T09:29:20.552Z",
+    "version": "1.2",
+    "folders": [
+        {
+            "_id": "1d0a5543-d879-4342-af0d-002ca8d8dde3",
+            "name": "auth",
+            "containerId": "",
+            "created": "2024-09-05T06:19:05.275Z",
+            "sortNum": 10000
+        },
+        {
+            "_id": "5f72a5a1-37e0-40bb-9523-d440ffa08b45",
+            "name": "posts",
+            "containerId": "",
+            "created": "2024-09-05T06:19:12.373Z",
+            "sortNum": 20000
+        }
+    ],
+    "requests": [
+        {
+            "_id": "ab30c8f7-7e36-499c-9ba1-28700a0fe8f4",
+            "colId": "e8c8426b-9688-468a-98b4-681312dd53b2",
+            "containerId": "1d0a5543-d879-4342-af0d-002ca8d8dde3",
+            "name": "Register",
+            "url": "{{baseRoute}}/api/auth/signup",
+            "method": "POST",
+            "sortNum": 10000,
+            "created": "2024-09-05T06:19:22.485Z",
+            "modified": "2024-09-05T07:10:57.041Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"email\":\"test1@yopmail.com\",\n  \"password\":\"abcxyz\", \n  \"confirmPassword\":\"abcxyz\"\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "7e3d38f6-7e3d-4026-91ec-109e96d8ab69",
+            "colId": "e8c8426b-9688-468a-98b4-681312dd53b2",
+            "containerId": "5f72a5a1-37e0-40bb-9523-d440ffa08b45",
+            "name": "Create Post",
+            "url": "{{baseRoute}}/api/post/createPost",
+            "method": "POST",
+            "sortNum": 10000,
+            "created": "2024-09-05T06:33:51.979Z",
+            "modified": "2024-09-05T07:17:11.747Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"title\":\"What is HTML?\",\n  \"blog\":\"HTMl is a Hyper Text markup language\",\n  \"userId\":\"66d9598028550b9f35118195\"\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "64b22a6a-6855-494f-9c48-056fd41c2e2a",
+            "colId": "e8c8426b-9688-468a-98b4-681312dd53b2",
+            "containerId": "1d0a5543-d879-4342-af0d-002ca8d8dde3",
+            "name": "Login",
+            "url": "{{baseRoute}}/api/auth/login",
+            "method": "POST",
+            "sortNum": 20000,
+            "created": "2024-09-05T06:33:04.004Z",
+            "modified": "2024-09-05T07:12:52.674Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"email\":\"test1@yopmail.com\",\n  \"password\":\"abcxyz\"\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "b5b15f54-1a69-4170-bea2-38b6119892ec",
+            "colId": "e8c8426b-9688-468a-98b4-681312dd53b2",
+            "containerId": "5f72a5a1-37e0-40bb-9523-d440ffa08b45",
+            "name": "Update Post",
+            "url": "{{baseRoute}}/api/post/updatePost",
+            "method": "PUT",
+            "sortNum": 20000,
+            "created": "2024-09-05T06:56:37.528Z",
+            "modified": "2024-09-05T07:32:36.439Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"title\":\"What is CSS\",\n  \"blog\":\"CSS is a style sheet for html that use for styling the web pages\",\n  \"userId\":\"66d9598028550b9f35118195\",\n  \"postId\":\"66d95a4d28550b9f35118198\"\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "3dde7cb4-5e9d-494b-aba0-fb6368dad805",
+            "colId": "e8c8426b-9688-468a-98b4-681312dd53b2",
+            "containerId": "5f72a5a1-37e0-40bb-9523-d440ffa08b45",
+            "name": "Delete Post",
+            "url": "{{baseRoute}}/api/post/deletePost",
+            "method": "DELETE",
+            "sortNum": 30000,
+            "created": "2024-09-05T06:57:28.215Z",
+            "modified": "2024-09-05T07:43:46.163Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"postId\":\"66cdcc5bcd60caf76a9327c5\",\n  \"userId\":\"66d96111c41c3f7b23ce0ece\"\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "117f54b1-be03-4516-8b15-bf0067272f82",
+            "colId": "e8c8426b-9688-468a-98b4-681312dd53b2",
+            "containerId": "5f72a5a1-37e0-40bb-9523-d440ffa08b45",
+            "name": "Get Posts",
+            "url": "{{baseRoute}}/api/post/getPosts?userId=66d9598028550b9f35118195",
+            "method": "GET",
+            "sortNum": 40000,
+            "created": "2024-09-05T06:58:15.725Z",
+            "modified": "2024-09-05T07:57:58.389Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "userId",
+                    "value": "66d9598028550b9f35118195",
+                    "isPath": false
+                }
+            ]
+        },
+        {
+            "_id": "e473f622-e22d-4213-aee4-ca610ae05218",
+            "colId": "e8c8426b-9688-468a-98b4-681312dd53b2",
+            "containerId": "5f72a5a1-37e0-40bb-9523-d440ffa08b45",
+            "name": "Get Single Posts",
+            "url": "{{baseRoute}}/api/post/getPost?postId=66d95a4d28550b9f35118198",
+            "method": "GET",
+            "sortNum": 50000,
+            "created": "2024-09-05T06:59:45.664Z",
+            "modified": "2024-09-05T08:08:20.878Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "postId",
+                    "value": "66d95a4d28550b9f35118198",
+                    "isPath": false
+                }
+            ]
+        }
+    ],
+    "ref": "74BqgxFzQI5zXBMTw7K3F1ucHmXVyWpUaGr0i4d8HEbnjJGqf5DvEZItqLVTWOIJx2Yi0gArlpnHiuFpIO862A"
+}
