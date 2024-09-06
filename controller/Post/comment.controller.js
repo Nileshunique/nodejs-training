@@ -49,8 +49,25 @@ const createComment = async (req, res) => {
 
 }
 
+const viewComment = async (req, res) => {
+  const { postId } = req.query;
 
+  const post = await blogPost.findOne({ _id: postId })
+  if (!post) { return postNotFound(res); }
+
+  const comments = await commentDB.find({ postId: postId, parentComment: null }) // Fetch top-level comments
+    .populate({
+      path: 'replies',
+      populate: {
+        path: 'replies', // Nested population for replies
+      },
+    });
+
+  res.status(200).json({ message: "Success", data: comments });
+
+};
 
 module.exports = {
   createComment,
+  viewComment,
 }
