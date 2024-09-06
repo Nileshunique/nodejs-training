@@ -40,6 +40,18 @@ deletePost
   body => postId,userId,
   query => "",
 
+create Comment
+  route => "/api/comment/createComment
+  method => "post",
+  body => postId, userId, comment, parentId, // parentId is optional for reply.
+  query => "",
+
+View comment
+  route => "/api/comment/createComment
+  method => "get",
+  body => "",
+  query => postId,
+
 Responses => 
   Register
     {
@@ -199,6 +211,69 @@ Responses =>
           "userId": "66d9598028550b9f35118195",
           "updatedAt": "2024-09-05T07:10:45.400Z",
           "createdAt": "2024-09-05T07:15:31.162Z",
+          "__v": 0
+        }
+      ]
+    }
+
+  create Comment 
+    1. 
+      {
+        "message": "Success",
+        "data": {
+          "postId": "66d95a9328550b9f3511819a",
+          "comment": "beautiful blog",
+          "userId": "66d9598028550b9f35118195",
+          "parentComment": null,
+          "replies": [],
+          "_id": "66dab56568d8e7035e4cb03a",
+          "updatedAt": "2024-09-06T07:55:17.941Z",
+          "createdAt": "2024-09-06T07:55:17.941Z",
+          "__v": 0
+        }
+      }
+
+    2. 
+      {
+        "message": "Success",
+        "data": {
+          "postId": "66d95a9328550b9f3511819a",
+          "comment": "correct it's beautiful blog",
+          "userId": "66d9598028550b9f35118195",
+          "parentComment": "66dab56568d8e7035e4cb03a",
+          "replies": [],
+          "_id": "66dab64368d8e7035e4cb03f",
+          "updatedAt": "2024-09-06T07:58:59.239Z",
+          "createdAt": "2024-09-06T07:58:59.239Z",
+          "__v": 0
+        }
+      }
+  
+  view Comment
+    {
+      "message": "Success",
+      "data": [
+        {
+          "_id": "66dab56568d8e7035e4cb03a",
+          "postId": "66d95a9328550b9f3511819a",
+          "comment": "beautiful blog",
+          "userId": "66d9598028550b9f35118195",
+          "parentComment": null,
+          "replies": [
+            {
+              "_id": "66dab64368d8e7035e4cb03f",
+              "postId": "66d95a9328550b9f3511819a",
+              "comment": "correct it's beautiful blog",
+              "userId": "66d9598028550b9f35118195",
+              "parentComment": "66dab56568d8e7035e4cb03a",
+              "replies": [],
+              "updatedAt": "2024-09-06T07:58:59.239Z",
+              "createdAt": "2024-09-06T07:58:59.239Z",
+              "__v": 0
+            }
+          ],
+          "updatedAt": "2024-09-06T07:55:17.941Z",
+          "createdAt": "2024-09-06T07:55:17.941Z",
           "__v": 0
         }
       ]
