@@ -1,4 +1,8 @@
 const mongoose = require('mongoose');
+require("./schema/post");
+require("./schema/postComment");
+require("./schema/userSchema");
+
 const DB = process.env.MONGODB_URL;
 
 mongoose.connect(DB).then(() => {
