@@ -41,7 +41,8 @@ const createComment = async (req, res) => {
 
     if (parentId) {
       await commentDB.findByIdAndUpdate({ _id: parentId }, {
-        $push: { replies: reply._id }
+        $push: { replies: reply._id },
+        updatedAt: Date.now()
       });
     }
 

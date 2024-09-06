@@ -40,7 +40,7 @@ const getPosts = async (req, res) => {
 
 const createPost = async (req, res) => {
   const { title, blog, userId } = req.body;
-  
+
   try {
     if (!title || !blog || !userId) {
       res.status(403).json({ message: "Please enter all details" })
@@ -70,7 +70,14 @@ const updatePost = async (req, res) => {
     if (!user) { return userNotFound(res); }
 
     // const post = new blogPost({ title, blog, userId });
-    const post = await blogPost.findOneAndUpdate({ _id: postId, userId: userId, $or: [{ delete: false }, { delete: { $exists: false } }] }, { title, blog }, { new: true })
+    const post = await blogPost.findOneAndUpdate(
+      {
+        _id: postId, userId: userId,
+        $or: [{ delete: false }, { delete: { $exists: false } }]
+      },
+      { title, blog, updatedAt: Date.now() },
+      { new: true }
+    )
     // await post.save();
     res.status(200).json({ message: "Success", data: post })
   } catch (err) {
@@ -91,7 +98,10 @@ const deletePost = async (req, res) => {
     const user = await userdb.findOne({ _id: userId })
     if (!user) { return userNotFound(res); }
 
-    const post = await blogPost.findOneAndUpdate({ _id: postId, userId: userId }, { delete: true }, { new: true })
+    const post = await blogPost.findOneAndUpdate(
+      { _id: postId, userId: userId },
+      { delete: true, updatedAt: Date.now() },
+      { new: true })
     // await post.save();
     res.status(200).json({ message: "Success", data: post })
   } catch (err) {

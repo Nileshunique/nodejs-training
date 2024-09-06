@@ -8,8 +8,10 @@ const userSchema = new mongoose.Schema({
   email: { type: String, },
   password: { type: String, },// required: true,
   image: { type: String, },
-  signupType: { type: String, default: "site", }
-}, { timestamps: true });
+  signupType: { type: String, default: "site", },
+  updatedAt: { type: Date, default: Date.now() },
+  createdAt: { type: Date, default: Date.now },
+});
 
 const userdb = new mongoose.model("users", userSchema);
 
