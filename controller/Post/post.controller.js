@@ -24,7 +24,7 @@ const getPosts = async (req, res) => {
 
   try {
     if (!userId) {
-      res.status(403).json({ message: "User Id is required" })
+      res.status(401).json({ message: "User Id is required" })
     }
 
     const user = await userdb.findOne({ _id: userId })
@@ -43,7 +43,7 @@ const createPost = async (req, res) => {
 
   try {
     if (!title || !blog || !userId) {
-      res.status(403).json({ message: "Please enter all details" })
+      res.status(401).json({ message: "Please enter all details" })
     }
 
     const user = await userdb.findOne({ _id: userId })
@@ -63,7 +63,7 @@ const updatePost = async (req, res) => {
 
   try {
     if (!title || !blog || !postId || !userId) {
-      res.status(403).json({ message: "Please enter all details" })
+      res.status(401).json({ message: "Please enter all details" })
     }
 
     const user = await userdb.findOne({ _id: userId })
@@ -92,7 +92,7 @@ const deletePost = async (req, res) => {
 
   try {
     if (!postId || !userId) {
-      res.status(403).json({ message: "Please enter all detail." })
+      res.status(401).json({ message: "Please enter all detail." })
     }
 
     const user = await userdb.findOne({ _id: userId })
