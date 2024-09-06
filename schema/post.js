@@ -6,7 +6,13 @@ const blogSchema = new Schema({
   delete: Boolean,
   blog: String,
   userId: { type: mongoose.Types.ObjectId, ref: 'users', required: true },
-  updatedAt: { type: Date, default: Date.now() },
+  reactions: {
+    like: {
+      count: { type: Number, default: 0 },
+      users: [{ type: mongoose.Types.ObjectId, ref: 'users' }] // Users who liked the post
+    },
+  },
+  updatedAt: { type: Date, default: Date.now },
   createdAt: { type: Date, default: Date.now },
 });
 

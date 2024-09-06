@@ -1,6 +1,7 @@
 var express = require('express');
 const { getPost, createPost, getPosts, updatePost, deletePost } = require('../controller/Post/post.controller');
 const { createComment, viewComment } = require('../controller/Post/comment.controller');
+const { markLike } = require('../controller/Post/reaction.controller');
 
 var router = express.Router();
 
@@ -12,5 +13,7 @@ router.delete('/deletePost', deletePost);
 
 router.get("/viewComment", viewComment);
 router.post("/createComment", createComment);
+
+router.post("/markLike", markLike);
 
 module.exports = router;

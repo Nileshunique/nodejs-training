@@ -9,7 +9,12 @@ const userSchema = new mongoose.Schema({
   password: { type: String, },// required: true,
   image: { type: String, },
   signupType: { type: String, default: "site", },
-  updatedAt: { type: Date, default: Date.now() },
+  reactions: {
+    likePosts: [{ type: mongoose.Types.ObjectId, ref: 'Blog' }],
+    funnyPosts: [{ type: mongoose.Types.ObjectId, ref: 'Blog' }],
+    wowPosts: [{ type: mongoose.Types.ObjectId, ref: 'Blog' }],
+  },
+  updatedAt: { type: Date, default: Date.now },
   createdAt: { type: Date, default: Date.now },
 });
 
