@@ -3,7 +3,8 @@ const userdb = require("../../schema/userSchema");
 const { internalServerError, postNotFound, userNotFound } = require("../../utils/errorList");
 
 const markLike = async (req, res) => {
-  const { postId, userId, reactionType = "like" } = req.body;
+  const { postId, reactionType = "like" } = req.body;
+  const userId = req.user?._id;
 
   try {
 

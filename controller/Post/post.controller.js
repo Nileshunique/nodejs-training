@@ -20,7 +20,7 @@ const getPost = async (req, res) => {
 }
 
 const getPosts = async (req, res) => {
-  const userId = req.query.userId;
+  const userId = req.user?._id || req.query.userId;
 
   try {
     if (!userId) {
@@ -39,7 +39,8 @@ const getPosts = async (req, res) => {
 }
 
 const createPost = async (req, res) => {
-  const { title, blog, userId } = req.body;
+  const { title, blog } = req.body;
+  const userId = req.user?._id;
 
   try {
     if (!title || !blog || !userId) {
@@ -59,7 +60,8 @@ const createPost = async (req, res) => {
 }
 
 const updatePost = async (req, res) => {
-  const { title, blog, postId, userId } = req.body;
+  const { title, blog, postId } = req.body;
+  const userId = req.user?._id;
 
   try {
     if (!title || !blog || !postId || !userId) {
@@ -88,7 +90,8 @@ const updatePost = async (req, res) => {
 }
 
 const deletePost = async (req, res) => {
-  const { postId, userId } = req.body;
+  const { postId } = req.body;
+  const userId = req.user?._id;
 
   try {
     if (!postId || !userId) {

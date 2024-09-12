@@ -15,7 +15,8 @@ const createComment = async (req, res) => {
   // const parentComment = await commentDB.findOne({ _id: parentId })
   // if (!parentComment) { return commentNotFound(res); }
 
-  const { postId, userId, comment, parentId } = req.body;
+  const { postId, comment, parentId } = req.body;
+  const userId = req.user?._id;
 
   try {
     // Use Promise.all to execute both queries concurrently

@@ -7,7 +7,7 @@ const authenticateToken = require('../utils/validateToken');
 var router = express.Router();
 
 router.get('/getPost', getPost);
-router.get('/getPosts', getPosts);
+router.get('/getPosts',authenticateToken, getPosts);
 router.post('/createPost', authenticateToken, createPost);
 router.put('/updatePost', authenticateToken, updatePost);
 router.delete('/deletePost', authenticateToken, deletePost);
